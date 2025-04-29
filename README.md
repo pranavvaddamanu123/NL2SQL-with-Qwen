@@ -18,3 +18,5 @@ This project is a hybrid natural language to SQL generation system designed to e
 
 
 This code requires a connection to a PostgreSQL database to return query results. To connect to the database, provide your credentials in the format indicated in the.env file.
+
+Install all dependencies indicated in the requirements.txt file.
