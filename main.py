@@ -227,14 +227,14 @@ def ppo_trainer(nl_query):
     with open("query_sql_reward_dataset.jsonl", "a", encoding="utf-8") as f:
         f.write(json.dumps({"query": nl_query, "sql": sql, "reward": reward}) + "\n")
 
-    print(f"\n🎯 Reward: {reward}\n")
+    print(f"\n Reward: {reward}\n")
     return sql, reward
 
-# ✅ Load Excel into DB
-excel_path = r"C:\Users\Pranav\Documents\multiple.xlsx"
+#  Load Excel into DB
+excel_path = input()
 load_excel_to_postgres(excel_path, engine)
 
-# ✅ Main CLI loop
+#  Main CLI loop
 user_generated_queries = []
 num_queries = 3
 
@@ -243,7 +243,7 @@ for i in range(num_queries):
     final_query, reward = ppo_trainer(nl_query)
     user_generated_queries.append((nl_query, final_query))
 
-    print("🧾 Final SQL Query:\n", final_query)
+    print(" Final SQL Query:\n", final_query)
 
     result_df = run_sql_query(final_query)
     print("\nResults:\n", result_df)
